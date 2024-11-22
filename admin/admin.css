@@ -1,0 +1,642 @@
+:root {
+  --primary: #028f6c;
+  --bg: #e4e9f7;
+  /* --bg: #c9f5f6; */
+  --dark: #000;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg);
+  color: #fff;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 250px;
+  background: #11101d;
+  padding: 6px 14px;
+  z-index: 99;
+  transition: all 0.5s ease;
+}
+
+.sidebar .logo-details {
+  height: 60px;
+  display: flex;
+  padding: 0 3rem 0;
+  align-items: center;
+  position: relative;
+}
+/* .sidebar .logo-details .icon {
+  display: none;
+  opacity: 0;
+  transition: all 0.5s ease;
+} */
+.sidebar .logo-details .logo_name {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+.sidebar .logo-details .logo_name span {
+  color: var(--primary);
+}
+
+.sidebar .logo-details #btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: all 0.4s ease;
+  font-size: 23px;
+  text-align: right;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.sidebar i {
+  color: #fff;
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+}
+.sidebar .nav-list {
+  margin-top: 20px;
+  height: 100%;
+}
+.sidebar li {
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.sidebar li a {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background: #11101d;
+}
+.sidebar li a:hover {
+  background: #fff;
+}
+.sidebar li a .links_name {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 1;
+  pointer-events: auto;
+  transition: 0.4s;
+}
+
+/* .sidebar li a.active {
+  background: #fff;
+  transition: all 0.5s ease;
+  color: #11101d;
+} */
+
+.sidebar li a:hover .links_name,
+.sidebar li a:hover i {
+  transition: all 0.5s ease;
+  color: #11101d;
+}
+
+.sidebar li i {
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 12px;
+}
+.sidebar li.profile {
+  position: fixed;
+  height: 60px;
+  width: 250px;
+  left: 0;
+  bottom: -8px;
+  padding: 10px 14px;
+  background: #1d1b31;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.sidebar li .profile-details {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding-bottom: 10px;
+}
+.sidebar li img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.sidebar li.profile .name,
+.sidebar li.profile .job {
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  white-space: nowrap;
+}
+.sidebar li.profile .job {
+  font-size: 12px;
+}
+.sidebar .profile #log_out {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 0px;
+  transition: all 0.5s ease;
+}
+
+.sidebar .profile #log_out:hover {
+  color: var(--primary);
+}
+
+.home-section,
+.user-section,
+.produk-section,
+.pesanan-section,
+.ekspedisi-section {
+  position: relative;
+  min-height: 100vh;
+  top: 0;
+  left: 250px;
+  transition: all 0.5s ease;
+  z-index: 2;
+  width: calc(100% - 250px);
+}
+
+.home-section .dasboard,
+.user-section .user,
+.produk-section .produk,
+.pesanan-section .pesanan,
+.ekspedisi-section .ekspedisi {
+  display: grid;
+  margin: 18px;
+}
+
+.home-section .dasboard h1,
+.user-section .user h1,
+.produk-section .produk h1,
+.pesanan-section .pesanan h1,
+.ekspedisi-section .ekspedisi h1 {
+  color: #11101d;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.home-section .insights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 24px;
+  margin-top: 36px;
+  padding: 5px;
+}
+
+.home-section .insights li {
+  padding: 24px;
+  background: var(--white);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  grid-gap: 24px;
+}
+
+.home-section .insights li .bx {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-section .insights li:nth-child(1) .bx {
+  background: #c4ebe1;
+  color: var(--primary);
+}
+
+.home-section .insights li:nth-child(2) .bx {
+  background: #cbebff;
+  color: #006cb5;
+}
+
+.home-section .insights li:nth-child(3) .bx {
+  background: #fdcaca;
+  color: #ff0000;
+}
+
+.home-section .insights li:nth-child(4) .bx {
+  background: #fdff94;
+  color: #796666;
+}
+
+.home-section .insights li .info h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.home-section .insights li .info p {
+  color: var(--dark);
+}
+
+.tentang,
+.table {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 24px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.tentang .tentang-box,
+.table .table-box {
+  padding: 24px;
+  background: var(--white);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-gap: 24px;
+}
+
+.table .table-box .judul-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.table .table-box .judul-box .btn-tambah {
+  width: 150px;
+  height: 40px;
+  color: var(--white);
+  background: blue;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.table .table-box .judul-box .btn-tambah:hover {
+  opacity: 0.8;
+}
+
+.tentang .tentang-box .tentang-item img {
+  padding: 24px 150px 24px;
+  max-width: 100%;
+  height: auto;
+}
+
+.tentang .tentang-box .tentang-item p {
+  color: var(--dark);
+  text-align: justify;
+}
+
+/* ===================  user page  ==================== */
+/* ===================  produk page  ==================== */
+
+.user-section .user table,
+.produk-section .produk table,
+.pesanan-section .pesanan table,
+.ekspedisi-section .ekspedisi table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--dark);
+}
+.user-section .user table th,
+.produk-section .produk table th,
+.pesanan-section .pesanan table th,
+.ekspedisi-section .ekspedisi table th {
+  background: var(--primary);
+}
+
+.user-section .user table th,
+.user-section .user table td,
+.produk-section .produk table th,
+.produk-section .produk table td,
+.pesanan-section .pesanan table th,
+.pesanan-section .pesanan table td,
+.ekspedisi-section .ekspedisi table th,
+.ekspedisi-section .ekspedisi table td {
+  border: 2px solid #dddddd;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.user-section .user table td a,
+.produk-section .produk table td a,
+.pesanan-section .pesanan table td a,
+.ekspedisi-section .ekspedisi table td a {
+  padding: 0 5px 3px;
+}
+
+.user-section .user table td .btn-edit,
+.produk-section .produk table td .btn-edit,
+.pesanan-section .pesanan table td .btn-edit,
+.ekspedisi-section .ekspedisi table td .btn-edit {
+  width: 80px;
+  height: 30px;
+  color: var(--white);
+  background: blue;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.user-section .user table td .btn-edit:hover,
+.produk-section .produk table td .btn-edit:hover,
+.pesanan-section .pesanan table td .btn-edit:hover,
+.ekspedisi-section .ekspedisi table td .btn-edit:hover {
+  opacity: 0.8;
+}
+
+.user-section .user table td .btn-hapus,
+.produk-section .produk table td .btn-hapus,
+.pesanan-section .pesanan table td .btn-hapus,
+.ekspedisi-section .ekspedisi table td .btn-hapus {
+  width: 80px;
+  height: 30px;
+  color: var(--white);
+  background: red;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.user-section .user table td .btn-hapus:hover,
+.produk-section .produk table td .btn-hapus:hover,
+.pesanan-section .pesanan table td .btn-hapus:hover,
+.ekspedisi-section .ekspedisi table td .btn-hapus:hover {
+  opacity: 0.8;
+}
+
+/*================= Tambah Produk ===================*/
+.edit-user-section .edit-user,
+.tambah-case-section .tambah-case,
+.tambah-charger-section .tambah-charger,
+.tambah-aksesoris-section .tambah-aksesoris {
+  display: flex;
+  justify-content: center;
+  padding: 11rem;
+  color: #000;
+}
+
+.edit-user-section .edit-user .box,
+.tambah-case-section .tambah-case .box,
+.tambah-charger-section .tambah-charger .box,
+.tambah-aksesoris-section .tambah-aksesoris .box {
+  background: #ffffff;
+  height: auto;
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0 128px 0 rgba(1, 1, 1, 0.4),
+    0 32px 64px -48px rgba(1, 1, 1, 0.8);
+}
+
+.edit-user-section .edit-user .box h2,
+.tambah-case-section .tambah-case .box h2,
+.tambah-charger-section .tambah-charger .box h2,
+.tambah-aksesoris-section .tambah-aksesoris .box h2 {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.edit-user-section .edit-user .box .form-box .form-input,
+.tambah-case-section .tambah-case .box .form-box .form-input,
+.tambah-charger-section .tambah-charger .box .form-box .form-input,
+.tambah-aksesoris-section .tambah-aksesoris .box .form-box .form-input {
+  display: flex;
+  margin-bottom: 1rem;
+  flex-direction: column;
+  flex: 1 1 calc(50% - 1rem);
+  box-sizing: border-box;
+}
+
+/* border input */
+.edit-user-section .edit-user .box .form-box .form-input #namaLengkap,
+.edit-user-section .edit-user .box .form-box .form-input #username,
+.edit-user-section .edit-user .box .form-box .form-input #email,
+.edit-user-section .edit-user .box .form-box .form-input #phone,
+.tambah-case-section .tambah-case .box .form-box .form-input #resi,
+.tambah-case-section .tambah-case .box .form-box .form-input #nama,
+.tambah-case-section .tambah-case .box .form-box .form-input #harga,
+.tambah-case-section .tambah-case .box .form-box .form-input #stok,
+.tambah-case-section .tambah-case .box .form-box .form-input #bahan,
+.tambah-case-section .tambah-case .box .form-box .form-input #model,
+.tambah-case-section .tambah-case .box .form-box .form-input #berat,
+.tambah-charger-section .tambah-charger .box .form-box .form-input #nama,
+.tambah-charger-section .tambah-charger .box .form-box .form-input #harga,
+.tambah-charger-section .tambah-charger .box .form-box .form-input #stok,
+.tambah-charger-section .tambah-charger .box .form-box .form-input #bahan,
+.tambah-charger-section .tambah-charger .box .form-box .form-input #model,
+.tambah-charger-section .tambah-charger .box .form-box .form-input #berat,
+.tambah-aksesoris-section .tambah-aksesoris .box .form-box .form-input #nama,
+.tambah-aksesoris-section .tambah-aksesoris .box .form-box .form-input #harga,
+.tambah-aksesoris-section .tambah-aksesoris .box .form-box .form-input #stok,
+.tambah-aksesoris-section .tambah-aksesoris .box .form-box .form-input #bahan,
+.tambah-aksesoris-section .tambah-aksesoris .box .form-box .form-input #model,
+.tambah-aksesoris-section .tambah-aksesoris .box .form-box .form-input #berat {
+  height: 2.5rem;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  outline: none;
+}
+
+.edit-user-section .edit-user .box .form-box a,
+.tambah-case-section .tambah-case .box .form-box a,
+.tambah-charger-section .tambah-charger .box .form-box a,
+.tambah-aksesoris-section .tambah-aksesoris .box .form-box a,
+.edit-user-section .edit-user .box .form-box .button-submit,
+.tambah-case-section .tambah-case .box .form-box .button-submit,
+.tambah-charger-section .tambah-charger .box .form-box .button-submit,
+.tambah-aksesoris-section .tambah-aksesoris .box .form-box .button-submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn-tambah {
+  height: 2rem;
+  width: 30%;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.btn-tambah:hover {
+  opacity: 0.82;
+}
+
+.btn-kembali {
+  background-color: red;
+  color: white;
+  height: 2rem;
+  width: 30%;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+.btn-kembali-isi {
+  background-color: red;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.btn-kembali:hover {
+  opacity: 0.82;
+}
+
+/* message box*/
+.message-error {
+  text-align: center;
+  font-weight: 500;
+  background: #ff000038;
+  padding: 1rem 0;
+  border: 1px solid #ff0000;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  color: red;
+}
+.message-sukses {
+  text-align: center;
+  font-weight: 500;
+  background: #33ff0038;
+  padding: 1rem 0;
+  border: 1px solid green;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  color: green;
+}
+
+/* media queris */
+/* tablet landscape */
+@media (max-width: 1024px) {
+  .tentang .tentang-box .tentang-item img {
+    padding: 24px 50px 24px;
+  }
+}
+/* tablet */
+@media (max-width: 834px) {
+  .sidebar {
+    width: 78px;
+  }
+
+  .sidebar.open {
+    width: 250px;
+  }
+
+  .sidebar .logo-details .logo_name {
+    opacity: 0;
+  }
+
+  .sidebar.open .logo-details .logo_name {
+    opacity: 1;
+  }
+
+  .sidebar .logo-details #btn {
+    display: block;
+    right: 30px;
+    text-align: start;
+  }
+
+  .sidebar .logo-details #btn:hover {
+    transition: all 0.5s ease;
+    color: var(--primary);
+  }
+
+  .sidebar.open .logo-details #btn {
+    text-align: right;
+  }
+
+  .sidebar li a .links_name {
+    opacity: 0;
+  }
+
+  .sidebar.open li a .links_name {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sidebar li.profile {
+    width: 78px;
+  }
+
+  .sidebar.open li.profile {
+    width: 250px;
+  }
+
+  .sidebar li .profile-details {
+    display: none;
+  }
+
+  .sidebar.open li .profile-details {
+    display: flex;
+  }
+
+  .sidebar .profile #log_out {
+    width: 100%;
+    background: #1d1b31;
+  }
+
+  .sidebar.open .profile #log_out {
+    width: 50px;
+    background: none;
+  }
+
+  .sidebar .profile #log_out:hover {
+    color: var(--primary);
+  }
+
+  .home-section,
+  .user-section,
+  .produk-section,
+  .pesanan-section,
+  .ekspedisi-section {
+    left: 78px;
+    width: calc(100% - 78px);
+  }
+
+  .tentang .tentang-box .tentang-item img {
+    padding: 24px 0 24px;
+  }
+}
